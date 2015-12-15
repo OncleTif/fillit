@@ -6,7 +6,7 @@
 /*   By: tmanet <tmanet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 15:30:11 by tmanet            #+#    #+#             */
-/*   Updated: 2015/12/14 16:02:26 by tmanet           ###   ########.fr       */
+/*   Updated: 2015/12/15 16:31:14 by tmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_piece_finisher(t_piece *p, char ltr)
 	while (i < 4)
 	{
 		sided = 0;
-		j = 0;
+		j = i + 1;
 		while (j < 4 && !sided)
 		{
 			if (((p->sq[i][0] == p->sq[j][0]) &&
