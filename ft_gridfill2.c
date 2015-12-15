@@ -6,7 +6,7 @@
 /*   By: tfolly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 16:45:41 by tfolly            #+#    #+#             */
-/*   Updated: 2015/12/15 17:49:39 by tfolly           ###   ########.fr       */
+/*   Updated: 2015/12/15 17:32:13 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,15 @@
 
 char	**ft_gridfill(char **grid, t_piece *piece)
 {
-	int pos;
-
-	pos = 0;
-	while(pos  <= grid->size)
+	if (ft_valid(grid, piece, pos))
 	{
-		if (ft_valid(grid, piece, pos))
-		{
-			ft_insert(grid, piece, pos);
-			if (piece->next)
-				return (ft_gridfill(grid, piece->next));
-			return (grid);
-		}
-		pos++;
+		ft_insert(grid, piece, pos);
+		if (piece->next)
+			return (ft_gridfill(grid, piece->next), 0)
+		return (grid);
 	}
+	if (ft_posvalid(pos + 1))
+		return (ft_gridfill(grid, piece, pos + 1));
 	return (0);
 }
 
