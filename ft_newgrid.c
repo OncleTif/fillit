@@ -25,7 +25,7 @@ t_grid	*ft_newgrid(int size)
 	i = 0;
 	while (i < size)
 	{
-		if (!(newgrid->grid[i] = (char*)ft_memalloc(sizeof(char) * size)))
+		if (!(newgrid->grid[i] = (char*)ft_memalloc(sizeof(char) * (size + 1))))
 			return (NULL);
 		i++;
 	}
