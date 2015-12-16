@@ -6,7 +6,7 @@
 /*   By: tmanet <tmanet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 10:26:57 by tmanet            #+#    #+#             */
-/*   Updated: 2015/12/14 15:29:36 by tmanet           ###   ########.fr       */
+/*   Updated: 2015/12/16 16:26:05 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@
 
 typedef struct		s_piece
 {
-	int				height;
-	int				width;
+	int				xmin;
+	int				xmax;
+	int				ymin;
+	int				ymax;
 	int				sq[4][2];
 	char			ltr;
 }					t_piece;
