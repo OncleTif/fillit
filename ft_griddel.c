@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_newgrid.c                                       :+:      :+:    :+:   */
+/*   ft_griddel.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfolly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/16 17:43:00 by tfolly            #+#    #+#             */
-/*   Updated: 2015/12/16 19:16:19 by tfolly           ###   ########.fr       */
+/*   Created: 2015/12/16 18:53:54 by tfolly            #+#    #+#             */
+/*   Updated: 2015/12/16 19:27:32 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "fillit.h"
 
-t_grid	*ft_newgrid(int size)
+void	ft_griddel(t_grid **grid)
 {
-	t_grid	*newgrid;
+	t_grid	*tmp;
 	int		i;
 
-	if (!(newgrid = (t_grid*)ft_memalloc(sizeof(t_grid))))
-		return (NULL);
-	newgrid->size = size;
-	if (!(newgrid->grid = (char**)ft_memalloc(sizeof(char*) * size)))
-		return (NULL);
+	tmp = *grid;
 	i = 0;
 	while (i < size)
 	{
-		if (!(newgrid->grid[i] = (char*)ft_memalloc(sizeof(char) * size)))
-			return (NULL);
+		free(tmp->grid[i]);
+		tmp->grid[i] = NULL;
 		i++;
 	}
-	return (newgrid);
+	free(tmp->grid);
+	tmp->grid = NULL;
+	free(tmp);
+	tmp = NULL;
 }
