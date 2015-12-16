@@ -7,17 +7,49 @@
 //un \n tous les 4 char et seulement la
 //chaque # doit se toucher
 
+static int	ft_is_stuck(char pt[4])
+{
+	int	stuck;
+	int	i;
+	int	j;
+
+	i = 0;
+	stuck = 1;
+	while (i < 4 && stuck)
+	{
+		j = 0;
+		stuck = 0;
+		while (j < 4)
+		{
+			if (pt[i] == pt[j] + 1 || pt[i] == pt[j] - 1
+					|| pt[i] == pt[j] + 5 || pt[i] == pt[j] - 5)
+				stuck = 1;
+			j++;
+		}
+		i++;
+	}
+return (stuck);
+}
+
 static int	ft_htouch(char *str) //verifie que les # se touchent
 {
-	 int i;
+	int	i;
+	int	j;
+	int	stuck;
+	char	pt[4];
 
-	 i = 0;
-	 while (i < 21) // je vais segfault sur les bords, il faut reecrire les conds mais cest dans cette idee
-	 {
-		 if (str[i] == '#')
-			 if (!(str[i - 1] == '#' || str[i + 1] == '#' || str[i - 5] == '#' || str[i + 5] == '#'))
-				 return (0);
-	 }
+	i = 0;
+	j = 0;
+	while (str[i])
+	{
+		if (str[i] == '#')
+		{
+			pt[j] = i;
+			j++;
+		}
+		i++;
+	}
+	return (ft_is_stuck(pt));
 }
 
 static int	ft_nend(char *str) //verifie que les \n sont bien a la fin des lignes
