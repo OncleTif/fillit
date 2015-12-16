@@ -24,10 +24,10 @@ t_piece		**ft_read(int fd)
 	t_piece **chaine;
 
 	*chaine = 0;
-	while(ret = read(fd, buf, BUFF_SIZE))
+	while((ret = read(fd, buf, BUFF_SIZE)) > 0)
 	{	
 		if (!ft_piecevalid(buf))
-			return (0);
+			return (0); //utiliser ft_error ici ?
 		ft_addpiece(chaine, buf);
 	}
 	return (chaine);
