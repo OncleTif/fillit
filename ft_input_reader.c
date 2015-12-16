@@ -6,7 +6,7 @@
 /*   By: tmanet <tmanet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 14:04:19 by tmanet            #+#    #+#             */
-/*   Updated: 2015/12/16 18:49:25 by tmanet           ###   ########.fr       */
+/*   Updated: 2015/12/16 19:02:17 by tmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ t_list	*ft_input_reader(int fd, char ltr)
 			ft_error("error");
 		piece = ft_piece_creator(buf, ltr);
 		elem = ft_lstnew(piece, sizeof(piece));
+		if (!elem)
+			ft_error("error");
 		elem->next = ft_input_reader(fd, ltr + 1);
 	}
 	return (elem);
