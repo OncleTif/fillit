@@ -7,8 +7,51 @@
 //un \n tous les 4 char et seulement la
 //chaque # doit se toucher
 
+static int	ft_is_stuck(char pt[4])
+{
+	int	stuck;
+	int	i;
+	int	j;
+
+	i = 0;
+	stuck = 1;
+	while (i < 4 && stuck)
+	{
+		j = 0;
+		stuck = 0;
+		while (j < 4)
+		{
+			if (pt[i] == pt[j] + 1 || pt[i] == pt[j] - 1
+					|| pt[i] == pt[j] + 5 || pt[i] == pt[j] - 5)
+				stuck = 1;
+			j++;
+		}
+		i++;
+	}
+return (stuck);
+}
+
 static int	ft_htouch(char *str) //verifie que les # se touchent
 {
+<<<<<<< HEAD
+	int	i;
+	int	j;
+	int	stuck;
+	char	pt[4];
+
+	i = 0;
+	j = 0;
+	while (str[i])
+	{
+		if (str[i] == '#')
+		{
+			pt[j] = i;
+			j++;
+		}
+		i++;
+	}
+	return (ft_is_stuck(pt));
+=======
 	 int i;
 
 	 i = 0;
@@ -19,6 +62,7 @@ static int	ft_htouch(char *str) //verifie que les # se touchent
 				 return (0);
 		 i++;
 	 }
+>>>>>>> 85929a4269bc7289b700b0984191e7f2c2d7f891
 }
 
 static int	ft_nend(char *str) //verifie que les \n sont bien a la fin des lignes
