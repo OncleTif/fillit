@@ -6,7 +6,7 @@
 /*   By: tmanet <tmanet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/18 16:27:12 by tmanet            #+#    #+#             */
-/*   Updated: 2015/12/18 17:38:26 by tfolly           ###   ########.fr       */
+/*   Updated: 2015/12/18 18:04:44 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int		main(int argc, char **argv)
 {
 	int		fd;
 	t_piece	*piece;
+	t_grid	*grid;
+	int		size;
 
 	if (argc != 2)
 		ft_error("error");
@@ -23,5 +25,14 @@ int		main(int argc, char **argv)
 	if (!fd)
 		ft_error("error");
 	piece = ft_input_reader(fd, 'A');
+	size = ft_gridsize(ft_nbrpiece(piece));
+	grid = NULL;
+	while (!grid)
+	{
+		grid = ft_newgrid(size);
+		grid = ft_gridfill(grid, piece);
+		size++;
+	}
+	ft_printgrid(grid);
 	return (0);
 }

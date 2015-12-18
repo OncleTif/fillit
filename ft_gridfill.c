@@ -6,7 +6,7 @@
 /*   By: tfolly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 16:45:41 by tfolly            #+#    #+#             */
-/*   Updated: 2015/12/18 17:33:55 by tfolly           ###   ########.fr       */
+/*   Updated: 2015/12/18 17:45:41 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 
 t_grid	*ft_gridfill(t_grid *grid, t_piece *piece)
 {
-	int 	x;
-	int 	y;
+	int		x;
+	int		y;
 	t_grid	*newgrid;
 	t_grid	*found;
 
 	x = 0;
-	while (x <= grid->size)
+	found = NULL;
+	while (x <= grid->size && !found)
 	{
 		y = 0;
-		while (y <= grid->size)
+		while (y <= grid->size && !found)
 		{
 			if (ft_valid(grid, piece, x, y))
 			{
@@ -32,12 +33,10 @@ t_grid	*ft_gridfill(t_grid *grid, t_piece *piece)
 				if (!piece->next)
 					return (newgrid);
 				found = ft_gridfill(newgrid, piece->next);
-				if (found)
-					return (found);
 			}
 			y++;
 		}
 		x++;
 	}
-	return (0);
+	return (found);
 }

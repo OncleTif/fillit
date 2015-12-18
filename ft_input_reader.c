@@ -6,7 +6,7 @@
 /*   By: tmanet <tmanet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 14:04:19 by tmanet            #+#    #+#             */
-/*   Updated: 2015/12/18 16:45:23 by tmanet           ###   ########.fr       */
+/*   Updated: 2015/12/18 17:43:35 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_piece	*ft_input_reader(int fd, char ltr)
 	if (ret > 0)
 	{
 		buf[ret] = 0;
-		if ( ret < 20)
+		if (ret < 20)
 			ft_error("buffer inferieur a 20");
 		piece = ft_piece_creator(buf, ltr);
 		ret = read(fd, buf, 1);
