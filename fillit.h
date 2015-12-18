@@ -6,7 +6,7 @@
 /*   By: tmanet <tmanet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 10:26:57 by tmanet            #+#    #+#             */
-/*   Updated: 2015/12/18 11:07:48 by tmanet           ###   ########.fr       */
+/*   Updated: 2015/12/18 12:19:08 by tmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ t_piece				*ft_piece_creator(char *buf, char ltr);
 void				ft_piece_finisher(t_piece *piece, char ltr);
 void				ft_piece_positioner(t_piece *piece);
 int					ft_piecevalid(char *buf);
+void				test_ft_printpiece(t_piece *p);
 
 #endif
