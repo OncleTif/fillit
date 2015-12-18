@@ -6,7 +6,11 @@
 /*   By: tmanet <tmanet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 10:26:57 by tmanet            #+#    #+#             */
-/*   Updated: 2015/12/18 17:30:59 by tfolly           ###   ########.fr       */
+<<<<<<< HEAD
+/*   Updated: 2015/12/18 16:42:48 by tfolly           ###   ########.fr       */
+=======
+/*   Updated: 2015/12/18 16:32:17 by tmanet           ###   ########.fr       */
+>>>>>>> 4b991d9d9ee7cf52a281b40ce6c74febdd458c7c
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +52,4 @@ int					ft_valid(t_grid *grid, t_piece *piece, int x, int y);
 void				ft_insert(t_grid *grid, t_piece *piece, int x, int y);
 t_grid				*ft_gridcpy(t_grid *grid);
 void				ft_griddel(t_grid *grid);
-int					ft_gridsize(int nbrpiece);
 #endif
