@@ -6,7 +6,7 @@
 /*   By: tmanet <tmanet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/18 12:01:18 by tmanet            #+#    #+#             */
-/*   Updated: 2015/12/18 15:52:13 by tfolly           ###   ########.fr       */
+/*   Updated: 2015/12/18 16:37:25 by tmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ void	test_ft_printpiece(t_piece *p)
 	ft_putchar('\n');
 	ft_putstr("ymax : ");
 	ft_putnbr(p->ymax);
+	ft_putchar('\n');
+	ft_putstr("address next : ");
+	ft_putnbr((int)p->next);
 	ft_putchar('\n');
 	i = 0;
 	while (i < 4)
