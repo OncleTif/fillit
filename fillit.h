@@ -6,7 +6,7 @@
 /*   By: tmanet <tmanet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 10:26:57 by tmanet            #+#    #+#             */
-/*   Updated: 2015/12/18 14:38:25 by tfolly           ###   ########.fr       */
+/*   Updated: 2015/12/18 14:53:56 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ void				test_ft_printpiece(t_piece *p);
 t_grid				*ft_newgrid(int size);
 void				ft_printgrid(t_grid *grid);
 int					ft_valid(t_grid *grid, t_piece *piece, int x, int y);
+void				ft_insert(t_grid *grid, t_piece *piece, int x, int y);
 
 #endif

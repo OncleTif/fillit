@@ -57,13 +57,12 @@ static int	ft_nend(char *str) //verifie que les \n sont bien a la fin des lignes
 	int i;
 
 	i = 1;
-	while (i < 21)
+	while (str[i])
 	{
 		if (i % 5 == 4 && str[i] != '\n')
 			return (0);
+		i++;
 	}
-	if (str[20] != '\n')
-		return (0); // est ce que cond vrai pour el dernier aussi ??
 	return (1);
 }
 
@@ -84,10 +83,9 @@ int			ft_piecevalid(char *str)
 			ncount++;
 		if (str[i] == '#')
 			hcount++;
-
+		i++;
 	}
-	if (ncount != 5 || hcount != 4)
-		return (1);
-	return (1);
+	if (ncount != 4 || hcount != 4)
+		return (0);
 	return (ft_nend(str) && ft_htouch(str));
 }
