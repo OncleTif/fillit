@@ -6,7 +6,7 @@
 /*   By: tmanet <tmanet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 15:30:11 by tmanet            #+#    #+#             */
-/*   Updated: 2015/12/18 11:07:57 by tmanet           ###   ########.fr       */
+/*   Updated: 2015/12/18 11:49:18 by tmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,19 @@ void	ft_piece_finisher(t_piece *p, char ltr)
 	int j;
 	int sided;
 
-	i = 0;
+	i = 1;
 	p->ltr = ltr;
 	ft_piece_positioner(p);
 	while (i < 4)
 	{
-		sided = 0;
-		j = i + 1;
-		while (j < 4 && !sided)
-		{
-			if (((p->sq[i][0] == p->sq[j][0]) &&
-						((p->sq[i][1] == p->sq[j][1] + 1) ||
-						 (p->sq[i][1] == p->sq[j][1] - 1))) ||
-					((p->sq[i][1] == p->sq[j][1]) &&
-					 ((p->sq[i][0] == p->sq[j][0] + 1) ||
-					  (p->sq[i][0] == p->sq[j][0] - 1))))
-				sided = 1;
-			j++;
-		}
-		if (!sided)
-			ft_error("error");
+		if (p->sq[i][0] < p->xmin)
+			p->xmin = p->sq[i][0];
+		if (p->sq[i][0] > p->xmax)
+			p->xmax = p->sq[i][0];
+		if (p->sq[i][1] < p->ymin)
+			p->xmin = p->sq[i][1];
+		if (p->sq[i][1] > p->ymax)
+			p->ymax = p->sq[i][1];
 		i++;
 	}
 }
