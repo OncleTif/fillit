@@ -6,21 +6,25 @@
 /*   By: tfolly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 16:52:16 by tfolly            #+#    #+#             */
-/*   Updated: 2015/12/15 18:52:24 by tfolly           ###   ########.fr       */
+/*   Updated: 2015/12/18 13:44:15 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-// doit tester pour voir si la piece rentre, il faut definir le format de la 
-// piece et celui de pos et grille avant de pouvoir la def
-int	ft_valid(char **grid, t_piece *piece, pos)
-{
 
-}
-
-int	ft_posvalid(char **grid, pos)
+int	ft_valid(t_grid *grid, t_piece *piece, int x, int y)
 {
-	if (grid->size * grid ->size >= pos)
-		return (1);
-	return (0);
+	int i;
+
+	i = 0;
+	if (piece->xmin + x < 0 || piece->xmax + x >= grid->size
+			|| piece->ymin + x < 0 || piece->ymax + y >= grid->size)
+		return (0);
+	while (i < 4)
+	{
+		if (grid->grid[x + piece->sq[i][0]][y + piece->sq[i][1]] != 0)
+			return (0);
+		i++;
+	}
+	return (1);
 }
