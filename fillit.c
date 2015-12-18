@@ -6,7 +6,7 @@
 /*   By: tmanet <tmanet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 10:40:03 by tmanet            #+#    #+#             */
-/*   Updated: 2015/12/18 13:24:59 by tmanet           ###   ########.fr       */
+/*   Updated: 2015/12/18 15:51:49 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		main(int argc, char **argv)
 	lst = ft_input_reader(fd, 'A');
 	while (lst)
 	{
-test_ft_printpiece(lst->content);
+		test_ft_printpiece(lst->content);
 		lst = lst->next;
 	}
 	return (0);

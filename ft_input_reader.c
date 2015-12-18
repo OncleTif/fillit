@@ -6,7 +6,7 @@
 /*   By: tmanet <tmanet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 14:04:19 by tmanet            #+#    #+#             */
-/*   Updated: 2015/12/16 19:02:17 by tmanet           ###   ########.fr       */
+/*   Updated: 2015/12/18 15:53:52 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_list	*ft_input_reader(int fd, char ltr)
 	if (ret > 0)
 	{
 		buf[ret] = 0;
-		if ( ret < 20)
+		if (ret < 20)
 			ft_error("error");
 		piece = ft_piece_creator(buf, ltr);
 		elem = ft_lstnew(piece, sizeof(piece));

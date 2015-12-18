@@ -1,11 +1,16 @@
-#include "fillit.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_piecevalid.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tfolly <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/12/18 15:50:53 by tfolly            #+#    #+#             */
+/*   Updated: 2015/12/18 15:54:47 by tfolly           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-//piece lue dans le buffer valide ?
-//il faut 21 char
-//seulement des # et . et \n
-//exactement 4 #
-//un \n tous les 4 char et seulement la
-//chaque # doit se toucher
+#include "fillit.h"
 
 static int	ft_is_stuck(char pt[4])
 {
@@ -31,11 +36,11 @@ static int	ft_is_stuck(char pt[4])
 	return (stuck);
 }
 
-static int	ft_htouch(char *str) //verifie que les # se touchent
+static int	ft_htouch(char *str)
 {
-	int	i;
-	int	j;
-	int	stuck;
+	int		i;
+	int		j;
+	int		stuck;
 	char	pt[4];
 
 	i = 0;
@@ -52,7 +57,7 @@ static int	ft_htouch(char *str) //verifie que les # se touchent
 	return (ft_is_stuck(pt));
 }
 
-static int	ft_nend(char *str) //verifie que les \n sont bien a la fin des lignes
+static int	ft_nend(char *str)
 {
 	int i;
 
