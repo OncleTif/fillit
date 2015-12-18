@@ -6,7 +6,7 @@
 /*   By: tmanet <tmanet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 14:04:19 by tmanet            #+#    #+#             */
-/*   Updated: 2015/12/18 17:43:35 by tfolly           ###   ########.fr       */
+/*   Updated: 2015/12/18 18:12:42 by tmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 t_piece	*ft_input_reader(int fd, char ltr)
 {
-	t_list	*elem;
 	t_piece	*piece;
 	char	buf[BUF_SIZE + 1];
 	size_t	ret;
 
-	elem = NULL;
+	piece = NULL;
 	ret = read(fd, buf, BUF_SIZE);
 	if (ret > 0)
 	{
