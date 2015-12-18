@@ -6,7 +6,7 @@
 /*   By: tmanet <tmanet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 14:48:13 by tmanet            #+#    #+#             */
-/*   Updated: 2015/12/18 14:46:56 by tfolly           ###   ########.fr       */
+/*   Updated: 2015/12/18 16:34:22 by tmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_piece	*ft_piece_creator(char *buf, char ltr)
 	piece = (t_piece*)ft_memalloc(sizeof(t_piece));
 	if (!piece)
 		ft_error("ft_piece_creator 2eme test");
+	piece->next = NULL;
 	while (buf[i] && n_case < 4)
 	{
 		if (buf[i] == '#')
