@@ -6,7 +6,7 @@
 /*   By: tmanet <tmanet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 15:30:11 by tmanet            #+#    #+#             */
-/*   Updated: 2015/12/16 17:01:59 by tfolly           ###   ########.fr       */
+/*   Updated: 2015/12/18 11:07:57 by tmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_piece_finisher(t_piece *p, char ltr)
 
 	i = 0;
 	p->ltr = ltr;
+	ft_piece_positioner(p);
 	while (i < 4)
 	{
 		sided = 0;
