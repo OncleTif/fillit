@@ -6,7 +6,7 @@
 /*   By: tmanet <tmanet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 10:26:57 by tmanet            #+#    #+#             */
-/*   Updated: 2015/12/18 14:53:56 by tfolly           ###   ########.fr       */
+/*   Updated: 2015/12/18 16:32:17 by tmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct		s_piece
 }					t_piece;
 
 void				ft_error(char *str);
-t_list				*ft_input_reader(int fd, char ltr);
+t_piece				*ft_input_reader(int fd, char ltr);
 t_piece				*ft_piece_creator(char *buf, char ltr);
 void				ft_piece_finisher(t_piece *piece, char ltr);
 void				ft_piece_positioner(t_piece *piece);
