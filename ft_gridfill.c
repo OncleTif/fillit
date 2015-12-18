@@ -6,7 +6,7 @@
 /*   By: tfolly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 16:45:41 by tfolly            #+#    #+#             */
-/*   Updated: 2015/12/18 12:59:53 by tfolly           ###   ########.fr       */
+/*   Updated: 2015/12/18 13:25:58 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,25 @@
 
 char	**ft_gridfill(t_grid **grid, t_piece *piece)
 {
-	int pos;
+	int x;
+	int y;
 
-	pos = 0;
-	while(pos <= *grid->size)
+	x = 0;
+	while(x <= *grid->size)
 	{
-		if (ft_valid(*grid, piece, pos))
+		y = 0;
+		while ( y <= *grd->size)
 		{
-			ft_insert(*grid, piece, pos);
-			if (piece->next)
-				return (ft_gridfill(*grid, piece->next));
-			return (grid);
+			if (ft_valid(*grid, piece, x, y))
+			{
+				ft_insert(*grid, piece, x, y);
+				if (piece->next)
+					return (ft_gridfill(*grid, piece->next));
+				return (grid);
+			}
+			y++;
 		}
-		pos++;
+		x++;
 	}
 	return (0);
 }
-
-// il faut definir le type de pos[1][1] ?
-// il faut une fct pour verifier que pos + 1 est dans grid
