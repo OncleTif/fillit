@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_gridfill.c                                      :+:      :+:    :+:   */
+/*   ft_gridcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfolly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/15 16:45:41 by tfolly            #+#    #+#             */
-/*   Updated: 2015/12/18 16:10:25 by tfolly           ###   ########.fr       */
+/*   Created: 2015/12/18 16:11:24 by tfolly            #+#    #+#             */
+/*   Updated: 2015/12/18 16:27:15 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_grid	*ft_gridfill(t_grid *grid, t_piece *piece)
+t_grid	*ft_gridcpy(t_grid *grid)
 {
-	int 	x;
-	int 	y;
 	t_grid	*newgrid;
+	int		i;
+	int		j;
 
-	x = 0;
-	while (x <= grid->size)
+	if (!(newgrid = ft_newgrid(grid->size)))
+		return (NULL);
+	i = 0;
+	while (i < grid->size)
 	{
-		y = 0;
-		while (y <= grid->size)
+		j = 0;
+		while (j < grid->size)
 		{
-			if (ft_valid(grid, piece, x, y))
-			{
-				newgrid = ft_gridcpy(grid);
-				ft_insert(newgrid, piece, x, y);
-				if (piece->next)
-					return (ft_gridfill(newgrid, piece->next));
-				return (newgrid);
-			}
-			y++;
+			newgrid->grid[i][j] = grid->grid[i][j];
+			j++;
 		}
-		x++;
+		i++;
 	}
-	return (0);
+	return (newgrid);
 }
