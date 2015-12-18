@@ -28,12 +28,11 @@ static int	ft_is_stuck(char pt[4])
 		}
 		i++;
 	}
-return (stuck);
+	return (stuck);
 }
 
 static int	ft_htouch(char *str) //verifie que les # se touchent
 {
-<<<<<<< HEAD
 	int	i;
 	int	j;
 	int	stuck;
@@ -51,18 +50,6 @@ static int	ft_htouch(char *str) //verifie que les # se touchent
 		i++;
 	}
 	return (ft_is_stuck(pt));
-=======
-	 int i;
-
-	 i = 0;
-	 while (i < 21) // je vais segfault sur les bords, il faut reecrire les conds mais cest dans cette idee
-	 {
-		 if (str[i] == '#')
-			 if (!(str[i - 1] == '#' || str[i + 1] == '#' || str[i - 5] == '#' || str[i + 5] == '#'))
-				 return (0);
-		 i++;
-	 }
->>>>>>> 85929a4269bc7289b700b0984191e7f2c2d7f891
 }
 
 static int	ft_nend(char *str) //verifie que les \n sont bien a la fin des lignes
@@ -91,7 +78,7 @@ int			ft_piecevalid(char *str)
 	hcount = 0;
 	while (i < 20)
 	{
-		if (str[i] != '.' || str[i] != '#' || str[i] != '\n')
+		if (str[i] != '.' && str[i] != '#' && str[i] != '\n')
 			return (0);
 		if (str[i] == '\n')
 			ncount++;
@@ -100,6 +87,7 @@ int			ft_piecevalid(char *str)
 
 	}
 	if (ncount != 5 || hcount != 4)
-		return (0);
+		return (1);
+	return (1);
 	return (ft_nend(str) && ft_htouch(str));
 }
