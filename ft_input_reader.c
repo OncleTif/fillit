@@ -6,7 +6,7 @@
 /*   By: tmanet <tmanet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 14:04:19 by tmanet            #+#    #+#             */
-/*   Updated: 2015/12/18 18:12:42 by tmanet           ###   ########.fr       */
+/*   Updated: 2015/12/18 18:18:02 by tmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ t_piece	*ft_input_reader(int fd, char ltr)
 		if (buf[0] != '\n')
 			ft_error("ft_input_reader erreur sur la separation piece");
 		piece->next = ft_input_reader(fd, ltr + 1);
+		if (!piece->next)
+			ft_error("ft_input_reader pas de piece apres dernier \n");
 	}
 	return (piece);
 }
