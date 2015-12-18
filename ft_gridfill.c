@@ -6,28 +6,28 @@
 /*   By: tfolly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 16:45:41 by tfolly            #+#    #+#             */
-/*   Updated: 2015/12/18 13:25:58 by tfolly           ###   ########.fr       */
+/*   Updated: 2015/12/18 14:35:50 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	**ft_gridfill(t_grid **grid, t_piece *piece)
+char	**ft_gridfill(t_grid *grid, t_piece *piece)
 {
 	int x;
 	int y;
 
 	x = 0;
-	while(x <= *grid->size)
+	while(x <= grid->size)
 	{
 		y = 0;
-		while ( y <= *grd->size)
+		while ( y <= grid->size)
 		{
-			if (ft_valid(*grid, piece, x, y))
+			if (ft_valid(grid, piece, x, y))
 			{
-				ft_insert(*grid, piece, x, y);
+				ft_insert(grid, piece, x, y);
 				if (piece->next)
-					return (ft_gridfill(*grid, piece->next));
+					return (ft_gridfill(grid, piece->next));
 				return (grid);
 			}
 			y++;

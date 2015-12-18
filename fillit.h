@@ -6,7 +6,7 @@
 /*   By: tmanet <tmanet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 10:26:57 by tmanet            #+#    #+#             */
-/*   Updated: 2015/12/18 12:19:08 by tmanet           ###   ########.fr       */
+/*   Updated: 2015/12/18 14:38:25 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct		s_piece
 	int				ymax;
 	int				sq[4][2];
 	char			ltr;
+	struct s_piece	*next;
 }					t_piece;
 
 void				ft_error(char *str);
@@ -41,5 +42,8 @@ void				ft_piece_finisher(t_piece *piece, char ltr);
 void				ft_piece_positioner(t_piece *piece);
 int					ft_piecevalid(char *buf);
 void				test_ft_printpiece(t_piece *p);
+t_grid				*ft_newgrid(int size);
+void				ft_printgrid(t_grid *grid);
+int					ft_valid(t_grid *grid, t_piece *piece, int x, int y);
 
 #endif

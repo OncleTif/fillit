@@ -6,11 +6,11 @@
 /*   By: tfolly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 17:43:00 by tfolly            #+#    #+#             */
-/*   Updated: 2015/12/16 19:16:19 by tfolly           ###   ########.fr       */
+/*   Updated: 2015/12/18 14:11:56 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "fillit.h"
 
 t_grid	*ft_newgrid(int size)
 {
