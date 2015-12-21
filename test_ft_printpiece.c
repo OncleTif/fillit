@@ -6,7 +6,7 @@
 /*   By: tmanet <tmanet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/18 12:01:18 by tmanet            #+#    #+#             */
-/*   Updated: 2015/12/18 16:37:25 by tmanet           ###   ########.fr       */
+/*   Updated: 2015/12/21 15:10:38 by tmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	test_ft_printpiece(t_piece *p)
 	ft_putchar(p->ltr);
 	ft_putchar('\n');
 	ft_putstr("xmin : ");
-	ft_putnbr(p->xmin);
+	ft_putnbr(0);
 	ft_putchar('\n');
 	ft_putstr("ymin : ");
 	ft_putnbr(p->ymin);
