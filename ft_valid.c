@@ -6,7 +6,7 @@
 /*   By: tfolly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 16:52:16 by tfolly            #+#    #+#             */
-/*   Updated: 2015/12/18 13:44:15 by tfolly           ###   ########.fr       */
+/*   Updated: 2015/12/21 14:59:00 by tmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	ft_valid(t_grid *grid, t_piece *piece, int x, int y)
 	int i;
 
 	i = 0;
-	if (piece->xmin + x < 0 || piece->xmax + x >= grid->size
-			|| piece->ymin + x < 0 || piece->ymax + y >= grid->size)
+	if (grid->grid[x][y] || piece->ymin + y < 0
+			|| piece->xmax + x >= grid->size || piece->ymax + y >= grid->size)
 		return (0);
 	while (i < 4)
 	{
