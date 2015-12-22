@@ -1,10 +1,8 @@
-SRC_PATH = ./sources 
+SRC_PATH = ./sources
 
 SRC_NAME = fillit.c ft_error.c ft_gridcpy.c ft_griddel.c ft_gridfill.c ft_gridsize.c\
 	   ft_input_reader.c ft_insert.c ft_nbrpiece.c ft_newgrid.c ft_piece_creator.c\
 	   ft_piece_positioner.c ft_piecevalid.c ft_printgrid.c ft_valid.c ft_piece_finisher.c
-
-OBJ_PATH = ./objs
 
 LIB_NAME = ft_atoi.c ft_bzero.c ft_intsize.c ft_intsize_base.c ft_isalnum.c ft_isalpha.c \
 	   ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c ft_itoa_base.c ft_lstadd.c \
@@ -25,7 +23,7 @@ LIB = libft.a
 
 CPPFLAGS = -I./includes
 
-LDFLAGS = -Llibft/
+LDFLAGS = -Llibft
 LDLIBS = -lft
 
 NAME = fillit
@@ -39,7 +37,7 @@ OBJ_NAME = $(SRC_NAME:.c=.o)
 LIB_OBJ_NAME = $(LIB_NAME:.c=.o)
 
 SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
-OBJ = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
+OBJ = $(addprefix $(SRC_PATH)/,$(OBJ_NAME))
 LIB_SRC = $(addprefix $(LIB_PATH)/,$(LIB_NAME))
 LIB_OBJ = $(addprefix $(LIB_PATH)/,$(LIB_OBJ_NAME))
 
@@ -53,15 +51,13 @@ $(LIB_PATH)%.o: $(LIB_PATH)%.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME): $(OBJ)
-	$(CC) $(LDFLAGS) $^ -o $@
+	$(CC) $(LIB) $(CPPFLAGS) $^ -o $@
 
-$(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	@mkdir $(OBJ_PATH) 2> /dev/null || true
-	$(CC) $(CFLAGS) -o $@ -c $<
+$(SRC_PATH)%.o: $(SRC_PATH)%.c
+	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 clean:
 	rm -fv $(OBJ) $(LIB_OBJ)
-	@rmdir $(OBJ_PATH) 2> /dev/null || true
 
 fclean: clean
 	rm -fv $(NAME) $(LIB)
