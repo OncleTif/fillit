@@ -49,12 +49,12 @@ all: $(LIB) $(NAME)
 $(LIB): $(LIB_OBJ)
 	ar rc $(LIB) $(LIB_OBJ)	
 
-$(LIB_OBJ_PATH)%.o: $(LIB_SRC_PATH)%.c
+$(LIB_PATH)%.o: $(LIB_PATH)%.c
 	@mkdir $(LIB_PATH) 2> /dev/null || true
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME): $(OBJ)
-	$(CC) $(LDFLAGS) $(LDLIBS) $^ -o $@
+	$(CC) $(LDFLAGS) $^ -o $@
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
