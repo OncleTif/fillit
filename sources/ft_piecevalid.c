@@ -6,7 +6,7 @@
 /*   By: tfolly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/18 15:50:53 by tfolly            #+#    #+#             */
-/*   Updated: 2015/12/21 15:00:47 by tmanet           ###   ########.fr       */
+/*   Updated: 2015/12/23 12:38:55 by tmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ static int	ft_is_stuck(char pt[4])
 	int	stuck;
 	int	i;
 	int	j;
+	int	contacts;
 
 	i = 0;
 	stuck = 1;
+	contacts = 0;
 	while (i < 4 && stuck)
 	{
 		j = 0;
@@ -28,12 +30,15 @@ static int	ft_is_stuck(char pt[4])
 		{
 			if (pt[i] == pt[j] + 1 || pt[i] == pt[j] - 1
 					|| pt[i] == pt[j] + 5 || pt[i] == pt[j] - 5)
+			{
 				stuck = 1;
+				contacts++;
+			}
 			j++;
 		}
 		i++;
 	}
-	return (stuck);
+	return (stuck && (contacts > 4));
 }
 
 static int	ft_htouch(char *str)
