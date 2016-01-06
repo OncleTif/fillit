@@ -16,7 +16,7 @@ t_piece	*ft_input_reader(int fd, char ltr)
 {
 	t_piece	*piece;
 	char	buf[BUF_SIZE + 1];
-	size_t	ret;
+	int	ret;
 
 	piece = NULL;
 	ret = read(fd, buf, BUF_SIZE);
@@ -35,5 +35,7 @@ t_piece	*ft_input_reader(int fd, char ltr)
 		if (!piece->next)
 			ft_error("ft_input_reader pas de piece apres dernier \n");
 	}
+	else
+		ft_error("erreur de read");
 	return (piece);
 }
