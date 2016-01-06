@@ -6,7 +6,7 @@
 /*   By: tmanet <tmanet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 15:30:11 by tmanet            #+#    #+#             */
-/*   Updated: 2015/12/21 15:00:16 by tmanet           ###   ########.fr       */
+/*   Updated: 2016/01/06 15:45:15 by tmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_piece_finisher(t_piece *p, char ltr)
 	int i;
 
 	i = 1;
+	if (ltr > 'Z')
+		ft_error("plus de 26 pieces");
 	p->ltr = ltr;
 	ft_piece_positioner(p);
 	while (i < 4)
