@@ -6,7 +6,7 @@
 /*   By: tmanet <tmanet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 14:04:19 by tmanet            #+#    #+#             */
-/*   Updated: 2015/12/18 18:18:02 by tmanet           ###   ########.fr       */
+/*   Updated: 2016/01/07 14:33:10 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_piece	*ft_input_reader(int fd, char ltr)
 		ret = read(fd, buf, 1);
 		if (!ret)
 			return (piece);
-		if (buf[0] != '\n')
+		if (ret == -1 || buf[0] != '\n')
 			ft_error("ft_input_reader erreur sur la separation piece");
 		piece->next = ft_input_reader(fd, ltr + 1);
 		if (!piece->next)
